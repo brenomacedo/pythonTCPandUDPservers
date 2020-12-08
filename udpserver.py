@@ -4,14 +4,15 @@ s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 print('socket criado com sucesso!')
 
 host = 'localhost'
-port = 5432
+port = 5555
 
 s.bind((host, port))
 
-mensagem = 'Servidor: Olá, cliente! Tudo bem?'
+message = 'Servidor: Olá, cliente! Tudo bem?'
 
 while 1:
-    date, address = s.recvfrom(4096)
+    data, address = s.recvfrom(4096)
 
-if dados:
-    print('Servidor')
+    if data:
+        print('Servidor enviando mensagem...')
+        s.sendto(data + (message.encode()), address)

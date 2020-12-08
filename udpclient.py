@@ -5,12 +5,12 @@ s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 print('Client socket criado com sucesso!')
 
 host = 'localhost'
-port = 5433
+port = 5555
 message = 'Olá, servidor, firmeza?'
 
 try:
     print('Cliente: {}'.format(message))
-    s.sendto(message.encode(), (host, 5432))
+    s.sendto(message.encode(), (host, port))
 
     dados, servidor = s.recvfrom(4096)
     dados = dados.decode()
